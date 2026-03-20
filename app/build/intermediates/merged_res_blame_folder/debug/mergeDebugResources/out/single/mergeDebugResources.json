@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-debug-32:/drawable_ic_image.xml.flat",
+        "source": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-main-34:/drawable/ic_image.xml"
+    },
+    {
+        "merged": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-debug-32:/layout_activity_main.xml.flat",
+        "source": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-main-34:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.wallpaperapp-debug-32:/layout_activity_main.xml.flat",
+        "source": "com.example.wallpaperapp-main-34:/layout/activity_main.xml"
+    }
+]

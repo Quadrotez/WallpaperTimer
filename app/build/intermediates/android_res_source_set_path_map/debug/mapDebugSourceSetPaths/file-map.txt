@@ -1,0 +1,7 @@
+com.example.wallpaperapp-pngs-0 /home/gregory/Documents/Projects/Wallpapertimer/app/build/generated/res/pngs/debug
+com.example.wallpaperapp-updated_navigation_xml-1 /home/gregory/Documents/Projects/Wallpapertimer/app/build/generated/updated_navigation_xml/debug
+com.example.wallpaperapp-packageDebugResources-2 /home/gregory/Documents/Projects/Wallpapertimer/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.example.wallpaperapp-packageDebugResources-3 /home/gregory/Documents/Projects/Wallpapertimer/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.example.wallpaperapp-debug-4 /home/gregory/Documents/Projects/Wallpapertimer/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.example.wallpaperapp-debug-5 /home/gregory/Documents/Projects/Wallpapertimer/app/src/debug/res
+com.example.wallpaperapp-main-6 /home/gregory/Documents/Projects/Wallpapertimer/app/src/main/res

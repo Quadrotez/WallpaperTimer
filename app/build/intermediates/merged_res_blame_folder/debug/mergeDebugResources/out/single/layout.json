@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.wallpaperapp-mergeDebugResources-31:/layout/activity_main.xml",
+        "source": "com.example.wallpaperapp-main-34:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-mergeDebugResources-31:/layout/activity_main.xml",
+        "source": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-main-34:/layout/activity_main.xml"
+    }
+]
