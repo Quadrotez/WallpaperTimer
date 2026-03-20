@@ -2,6 +2,7 @@
 <resources>
     <color name="background">#F0F2F8</color>
     <color name="card_background">#FFFFFF</color>
+    <color name="radio_background">#F7F8FC</color>
     <color name="text_primary">#1A1D2E</color>
     <color name="text_secondary">#8A8FA8</color>
     <color name="accent">#5B6CF8</color>

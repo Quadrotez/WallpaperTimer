@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#121212</color>
+    <color name="card_background">#1E1E1E</color>
+    <color name="radio_background">#2A2A2A</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#9E9E9E</color>
+    <color name="accent">#7B8BFF</color>
+    <color name="button_set">#E0E0E0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="success_green">#4CAF50</color>
+    <color name="error_red">#EF5350</color>
+</resources>

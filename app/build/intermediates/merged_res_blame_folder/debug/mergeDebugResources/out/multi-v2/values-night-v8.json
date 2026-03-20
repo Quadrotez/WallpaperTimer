@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.wallpaperapp-mergeDebugResources-29:/values-night-v8/values-night-v8.xml",
+            "outputFile": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-mergeDebugResources-29:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/home/gregory/.gradle/caches/9.3.1/transforms/0cce8b0d8071f50d211c17744fe6da10/transformed/material-1.11.0/res/values-night-v8/values-night-v8.xml",
@@ -35,6 +35,77 @@
                         "startOffsets": "55,125,209,293,389,491,593,3448",
                         "endColumns": "69,83,83,95,101,101,93,88",
                         "endOffsets": "120,204,288,384,486,588,682,3532"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.example.wallpaperapp-mergeDebugResources-29:/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/res/values-night/colors.xml",
+                    "from": {
+                        "startLines": "7,2,8,3,11,4,10,5,6,9",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "297,55,338,100,471,150,423,201,248,383",
+                        "endColumns": "40,44,44,49,43,50,47,46,48,39",
+                        "endOffsets": "333,95,378,145,510,196,466,243,292,418"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,96,141,186,236,280,331,379,426,475",
+                        "endColumns": "40,44,44,49,43,50,47,46,48,39",
+                        "endOffsets": "91,136,181,231,275,326,374,421,470,510"
+                    }
+                },
+                {
+                    "source": "/home/gregory/.gradle/caches/9.3.1/transforms/0cce8b0d8071f50d211c17744fe6da10/transformed/material-1.11.0/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,59,60,61,62,63,64,65,66",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1147,1222,1333,1422,1523,1630,1737,1836,1943,2046,2134,2258,2360,2462,2578,2680,2794,2922,3038,3160,3296,3416,3550,3670,3782,4871,4988,5112,5242,5364,5502,5636,5752",
+                        "endColumns": "74,110,88,100,106,106,98,106,102,87,123,101,101,115,101,113,127,115,121,135,119,133,119,111,125,116,123,129,121,137,133,115,119",
+                        "endOffsets": "1217,1328,1417,1518,1625,1732,1831,1938,2041,2129,2253,2355,2457,2573,2675,2789,2917,3033,3155,3291,3411,3545,3665,3777,3903,4983,5107,5237,5359,5497,5631,5747,5867"
+                    }
+                },
+                {
+                    "source": "/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/res/values-night/themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "15",
+                        "endColumns": "12",
+                        "endOffsets": "924"
+                    },
+                    "to": {
+                        "startLines": "44",
+                        "startColumns": "4",
+                        "startOffsets": "3908",
+                        "endLines": "57",
+                        "endColumns": "12",
+                        "endOffsets": "4777"
+                    }
+                },
+                {
+                    "source": "/home/gregory/.gradle/caches/9.3.1/transforms/6afbf472272a7c0af0ad4a7ca664ec8b/transformed/appcompat-1.6.1/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "12,13,14,15,16,17,18,58",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "515,585,669,753,849,951,1053,4782",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "580,664,748,844,946,1048,1142,4866"
                     }
                 }
             ]

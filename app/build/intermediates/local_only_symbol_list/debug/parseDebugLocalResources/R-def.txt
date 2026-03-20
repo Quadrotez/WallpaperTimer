@@ -5,6 +5,7 @@ color background
 color button_set
 color card_background
 color error_red
+color radio_background
 color success_green
 color text_primary
 color text_secondary

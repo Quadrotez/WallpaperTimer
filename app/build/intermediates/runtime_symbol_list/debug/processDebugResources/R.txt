@@ -2081,6 +2081,7 @@ int color primary_text_default_material_dark 0x7f0502f5
 int color primary_text_default_material_light 0x7f0502f6
 int color primary_text_disabled_material_dark 0x7f0502f7
 int color primary_text_disabled_material_light 0x7f0502f8
+int color radio_background 0x7f05030b
 int color ripple_material_dark 0x7f0502f9
 int color ripple_material_light 0x7f0502fa
 int color secondary_text_default_material_dark 0x7f0502fb

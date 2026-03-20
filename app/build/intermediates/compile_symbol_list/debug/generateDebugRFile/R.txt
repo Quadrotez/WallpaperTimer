@@ -3,6 +3,7 @@ int color background 0x0
 int color button_set 0x0
 int color card_background 0x0
 int color error_red 0x0
+int color radio_background 0x0
 int color success_green 0x0
 int color text_primary 0x0
 int color text_secondary 0x0
