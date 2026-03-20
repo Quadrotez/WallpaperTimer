@@ -2,29 +2,47 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wallpaperapp">
 
-    <!-- Разрешение на установку обоев -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
-    <!-- Разрешение на чтение файлов (Android < 13) -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
-    <!-- Разрешение на чтение изображений (Android 13+) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
+        android:label="WallpaperTimer"
         android:supportsRtl="true"
         android:theme="@style/Theme.WallpaperApp">
 
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".AddScheduleActivity" android:exported="false" />
+        <activity android:name=".CropActivity" android:exported="false" />
+
+        <receiver
+            android:name=".WallpaperReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.wallpaperapp.CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>

@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wallpaperapp"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="24"
         android:targetSdkVersion="34" />
 
-    <!-- Разрешение на установку обоев -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
-    <!-- Разрешение на чтение файлов (Android < 13) -->
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-    <!-- Разрешение на чтение изображений (Android 13+) -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <permission
         android:name="com.example.wallpaperapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -28,20 +29,40 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:label="@string/app_name"
+        android:label="WallpaperTimer"
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.WallpaperApp" >
         <activity
             android:name="com.example.wallpaperapp.MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize" >
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.wallpaperapp.AddScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.wallpaperapp.CropActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.example.wallpaperapp.WallpaperReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.example.wallpaperapp.CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.example.wallpaperapp.BootReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
         <provider
             android:name="androidx.startup.InitializationProvider"

@@ -1,15 +1,47 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Android
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Build
+/build/
+/app/build/
+**/build/
+
+# Gradle
+.gradle/
+gradle-wrapper.jar
 local.properties
+
+# Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Kotlin
+*.kotlin_module
+
+# Keystore (ОБЯЗАТЕЛЬНО — никогда не коммить ключи подписи)
+*.jks
+*.keystore
+release.properties
+
+# Logs
+*.log
+
+# Temp
+*.tmp
+*.bak
+*.swp
+
+# macOS
+.DS_Store
+
+# Linux
+*~

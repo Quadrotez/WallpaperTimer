@@ -4,92 +4,44 @@ package com.example.wallpaperapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.wallpaperapp.R;
-import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final CoordinatorLayout rootView;
 
   @NonNull
-  public final MaterialButton btnPickImage;
+  public final FloatingActionButton fab;
 
   @NonNull
-  public final MaterialButton btnSetWallpaper;
+  public final RecyclerView rvSchedules;
 
   @NonNull
-  public final CardView cardPreview;
+  public final TextView tvEmpty;
 
-  @NonNull
-  public final ImageView imagePreview;
-
-  @NonNull
-  public final ProgressBar progressBar;
-
-  @NonNull
-  public final RadioButton radioBoth;
-
-  @NonNull
-  public final RadioGroup radioGroup;
-
-  @NonNull
-  public final RadioButton radioHome;
-
-  @NonNull
-  public final RadioButton radioLock;
-
-  @NonNull
-  public final CardView statusCard;
-
-  @NonNull
-  public final TextView tvPreviewHint;
-
-  @NonNull
-  public final TextView tvSelectedFile;
-
-  @NonNull
-  public final TextView tvStatus;
-
-  private ActivityMainBinding(@NonNull ScrollView rootView, @NonNull MaterialButton btnPickImage,
-      @NonNull MaterialButton btnSetWallpaper, @NonNull CardView cardPreview,
-      @NonNull ImageView imagePreview, @NonNull ProgressBar progressBar,
-      @NonNull RadioButton radioBoth, @NonNull RadioGroup radioGroup,
-      @NonNull RadioButton radioHome, @NonNull RadioButton radioLock, @NonNull CardView statusCard,
-      @NonNull TextView tvPreviewHint, @NonNull TextView tvSelectedFile,
-      @NonNull TextView tvStatus) {
+  private ActivityMainBinding(@NonNull CoordinatorLayout rootView,
+      @NonNull FloatingActionButton fab, @NonNull RecyclerView rvSchedules,
+      @NonNull TextView tvEmpty) {
     this.rootView = rootView;
-    this.btnPickImage = btnPickImage;
-    this.btnSetWallpaper = btnSetWallpaper;
-    this.cardPreview = cardPreview;
-    this.imagePreview = imagePreview;
-    this.progressBar = progressBar;
-    this.radioBoth = radioBoth;
-    this.radioGroup = radioGroup;
-    this.radioHome = radioHome;
-    this.radioLock = radioLock;
-    this.statusCard = statusCard;
-    this.tvPreviewHint = tvPreviewHint;
-    this.tvSelectedFile = tvSelectedFile;
-    this.tvStatus = tvStatus;
+    this.fab = fab;
+    this.rvSchedules = rvSchedules;
+    this.tvEmpty = tvEmpty;
   }
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -114,87 +66,25 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnPickImage;
-      MaterialButton btnPickImage = ViewBindings.findChildViewById(rootView, id);
-      if (btnPickImage == null) {
+      id = R.id.fab;
+      FloatingActionButton fab = ViewBindings.findChildViewById(rootView, id);
+      if (fab == null) {
         break missingId;
       }
 
-      id = R.id.btnSetWallpaper;
-      MaterialButton btnSetWallpaper = ViewBindings.findChildViewById(rootView, id);
-      if (btnSetWallpaper == null) {
+      id = R.id.rvSchedules;
+      RecyclerView rvSchedules = ViewBindings.findChildViewById(rootView, id);
+      if (rvSchedules == null) {
         break missingId;
       }
 
-      id = R.id.cardPreview;
-      CardView cardPreview = ViewBindings.findChildViewById(rootView, id);
-      if (cardPreview == null) {
+      id = R.id.tvEmpty;
+      TextView tvEmpty = ViewBindings.findChildViewById(rootView, id);
+      if (tvEmpty == null) {
         break missingId;
       }
 
-      id = R.id.imagePreview;
-      ImageView imagePreview = ViewBindings.findChildViewById(rootView, id);
-      if (imagePreview == null) {
-        break missingId;
-      }
-
-      id = R.id.progressBar;
-      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
-      if (progressBar == null) {
-        break missingId;
-      }
-
-      id = R.id.radioBoth;
-      RadioButton radioBoth = ViewBindings.findChildViewById(rootView, id);
-      if (radioBoth == null) {
-        break missingId;
-      }
-
-      id = R.id.radioGroup;
-      RadioGroup radioGroup = ViewBindings.findChildViewById(rootView, id);
-      if (radioGroup == null) {
-        break missingId;
-      }
-
-      id = R.id.radioHome;
-      RadioButton radioHome = ViewBindings.findChildViewById(rootView, id);
-      if (radioHome == null) {
-        break missingId;
-      }
-
-      id = R.id.radioLock;
-      RadioButton radioLock = ViewBindings.findChildViewById(rootView, id);
-      if (radioLock == null) {
-        break missingId;
-      }
-
-      id = R.id.statusCard;
-      CardView statusCard = ViewBindings.findChildViewById(rootView, id);
-      if (statusCard == null) {
-        break missingId;
-      }
-
-      id = R.id.tvPreviewHint;
-      TextView tvPreviewHint = ViewBindings.findChildViewById(rootView, id);
-      if (tvPreviewHint == null) {
-        break missingId;
-      }
-
-      id = R.id.tvSelectedFile;
-      TextView tvSelectedFile = ViewBindings.findChildViewById(rootView, id);
-      if (tvSelectedFile == null) {
-        break missingId;
-      }
-
-      id = R.id.tvStatus;
-      TextView tvStatus = ViewBindings.findChildViewById(rootView, id);
-      if (tvStatus == null) {
-        break missingId;
-      }
-
-      return new ActivityMainBinding((ScrollView) rootView, btnPickImage, btnSetWallpaper,
-          cardPreview, imagePreview, progressBar, radioBoth, radioGroup, radioHome, radioLock,
-          statusCard, tvPreviewHint, tvSelectedFile, tvStatus);
+      return new ActivityMainBinding((CoordinatorLayout) rootView, fab, rvSchedules, tvEmpty);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

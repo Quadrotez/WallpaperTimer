@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Toolbar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Новое расписание"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
+        </LinearLayout>
+
+        <!-- Name -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="НАЗВАНИЕ" android:textSize="12sp" android:textColor="@color/text_secondary"
+            android:letterSpacing="0.1" android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Моё расписание"
+                android:inputType="textCapSentences" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Time -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/card_background">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🕐  ВРЕМЯ СМЕНЫ" android:textSize="12sp" android:textColor="@color/text_secondary"
+                    android:letterSpacing="0.1" android:layout_marginBottom="8dp" />
+
+                <TimePicker
+                    android:id="@+id/timePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:timePickerMode="spinner" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Days -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/card_background">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📅  ДНИ НЕДЕЛИ" android:textSize="12sp" android:textColor="@color/text_secondary"
+                    android:letterSpacing="0.1" android:layout_marginBottom="12dp" />
+
+                <RadioGroup android:id="@+id/radioGroup" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical">
+
+                    <RadioButton android:id="@+id/radioEvery" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:text="Каждый день"
+                        android:textSize="15sp" android:checked="true"
+                        android:buttonTint="@color/accent" />
+
+                    <RadioButton android:id="@+id/radioWeekdays" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:text="По будням (Пн–Пт)"
+                        android:textSize="15sp" android:buttonTint="@color/accent" />
+
+                    <RadioButton android:id="@+id/radioWeekly" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:text="Еженедельно"
+                        android:textSize="15sp" android:buttonTint="@color/accent" />
+
+                    <RadioButton android:id="@+id/radioSpecific" android:layout_width="match_parent"
+                        android:layout_height="48dp" android:text="Конкретные дни"
+                        android:textSize="15sp" android:buttonTint="@color/accent" />
+                </RadioGroup>
+
+                <!-- Weekly day picker -->
+                <LinearLayout android:id="@+id/layoutWeeklyDay"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:paddingTop="8dp" android:visibility="gone">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="День: " android:textSize="15sp" android:textColor="@color/text_primary" />
+                    <Spinner android:id="@+id/spinnerWeekDay"
+                        android:layout_width="wrap_content" android:layout_height="48dp" />
+                </LinearLayout>
+
+                <!-- Specific days checkboxes -->
+                <LinearLayout android:id="@+id/layoutSpecific"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="8dp"
+                    android:visibility="gone">
+                    <CheckBox android:id="@+id/cbMon" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:text="Пн" android:buttonTint="@color/accent" />
+                    <CheckBox android:id="@+id/cbTue" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:text="Вт" android:buttonTint="@color/accent" />
+                    <CheckBox android:id="@+id/cbWed" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:text="Ср" android:buttonTint="@color/accent" />
+                    <CheckBox android:id="@+id/cbThu" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:text="Чт" android:buttonTint="@color/accent" />
+                    <CheckBox android:id="@+id/cbFri" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:text="Пт" android:buttonTint="@color/accent" />
+                    <CheckBox android:id="@+id/cbSat" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:text="Сб" android:buttonTint="@color/accent" />
+                    <CheckBox android:id="@+id/cbSun" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:text="Вс" android:buttonTint="@color/accent" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Photos -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@color/card_background">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="🖼️  ФОТОГРАФИИ" android:textSize="12sp"
+                        android:textColor="@color/text_secondary" android:letterSpacing="0.1" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddPhoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="+ Добавить"
+                        android:textSize="13sp"
+                        app:backgroundTint="@color/accent"
+                        app:cornerRadius="10dp" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPhotos"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:clipToPadding="false"
+                    android:paddingHorizontal="4dp" />
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Фотографии будут меняться поочерёдно при каждом срабатывании"
+                    android:textSize="12sp" android:textColor="@color/text_secondary"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Save button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Сохранить расписание"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/button_set"
+            app:cornerRadius="16dp"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>

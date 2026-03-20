@@ -1,14 +1,22 @@
 [
     {
-        "merged": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-debug-32:/drawable_ic_image.xml.flat",
-        "source": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-main-34:/drawable/ic_image.xml"
+        "merged": "com.example.wallpaperapp-debug-31:/layout_activity_main.xml.flat",
+        "source": "com.example.wallpaperapp-main-33:/layout/activity_main.xml"
     },
     {
-        "merged": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-debug-32:/layout_activity_main.xml.flat",
-        "source": "/home/gregory/.gradle/daemon/9.3.1/com.example.wallpaperapp-main-34:/layout/activity_main.xml"
+        "merged": "com.example.wallpaperapp-debug-31:/layout_activity_crop.xml.flat",
+        "source": "com.example.wallpaperapp-main-33:/layout/activity_crop.xml"
     },
     {
-        "merged": "com.example.wallpaperapp-debug-32:/layout_activity_main.xml.flat",
-        "source": "com.example.wallpaperapp-main-34:/layout/activity_main.xml"
+        "merged": "com.example.wallpaperapp-debug-31:/layout_item_schedule.xml.flat",
+        "source": "com.example.wallpaperapp-main-33:/layout/item_schedule.xml"
+    },
+    {
+        "merged": "com.example.wallpaperapp-debug-31:/layout_item_photo.xml.flat",
+        "source": "com.example.wallpaperapp-main-33:/layout/item_photo.xml"
+    },
+    {
+        "merged": "com.example.wallpaperapp-debug-31:/layout_activity_add_schedule.xml.flat",
+        "source": "com.example.wallpaperapp-main-33:/layout/activity_add_schedule.xml"
     }
 ]

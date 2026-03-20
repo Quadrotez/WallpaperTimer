@@ -2,21 +2,14 @@
 <resources>
     <color name="accent">#5B6CF8</color>
     <color name="background">#F0F2F8</color>
-    <color name="black">#FF000000</color>
     <color name="button_set">#1A1D2E</color>
     <color name="card_background">#FFFFFF</color>
     <color name="error_red">#EF4444</color>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="radio_background">#F7F8FC</color>
     <color name="success_green">#22C55E</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
     <color name="text_primary">#1A1D2E</color>
     <color name="text_secondary">#8A8FA8</color>
     <color name="white">#FFFFFF</color>
-    <string name="app_name">Wallpaper App</string>
+    <string name="app_name">WallpaperTimer</string>
     <style name="Theme.WallpaperApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/accent</item>
         <item name="colorPrimaryVariant">@color/accent</item>
