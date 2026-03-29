@@ -15,29 +15,46 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:paddingHorizontal="20dp"
             android:paddingTop="24dp"
-            android:paddingBottom="16dp">
+            android:paddingBottom="12dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Обои по расписанию"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary" />
+                android:orientation="vertical">
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Обои по расписанию"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Автоматическая смена обоев"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGallery"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Автоматическая смена обоев"
-                android:textSize="14sp"
-                android:textColor="@color/text_secondary"
-                android:layout_marginTop="2dp" />
+                android:layout_height="40dp"
+                android:text="Галерея"
+                android:textSize="13sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/accent"
+                app:cornerRadius="10dp" />
         </LinearLayout>
 
-        <!-- Empty state -->
         <TextView
             android:id="@+id/tvEmpty"
             android:layout_width="match_parent"

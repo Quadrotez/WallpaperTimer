@@ -48,7 +48,7 @@
 25-->[androidx.core:core:1.12.0] /home/gregory/.gradle/caches/9.3.1/transforms/6e4a112247a8047167b658bd121457c3/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
 26
 27    <application
-27-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:13:5-47:19
+27-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:13:5-48:19
 28        android:allowBackup="true"
 28-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:14:9-35
 29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -92,99 +92,105 @@
 49-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:29:19-47
 50            android:exported="false" />
 50-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:29:48-72
-51
-52        <receiver
-52-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:31:9-37:20
-53            android:name="com.example.wallpaperapp.WallpaperReceiver"
-53-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:32:13-46
-54            android:exported="false" >
-54-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:33:13-37
-55            <intent-filter>
-55-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:34:13-36:29
-56                <action android:name="com.example.wallpaperapp.CHANGE" />
-56-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:35:17-74
-56-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:35:25-71
-57            </intent-filter>
-58        </receiver>
-59        <receiver
-59-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:39:9-45:20
-60            android:name="com.example.wallpaperapp.BootReceiver"
-60-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:40:13-41
-61            android:exported="true" >
-61-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:41:13-36
-62            <intent-filter>
-62-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:42:13-44:29
-63                <action android:name="android.intent.action.BOOT_COMPLETED" />
-63-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:43:17-79
-63-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:43:25-76
-64            </intent-filter>
-65        </receiver>
-66
-67        <provider
-67-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-68            android:name="androidx.startup.InitializationProvider"
-68-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
-69            android:authorities="com.example.wallpaperapp.androidx-startup"
-69-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
-70            android:exported="false" >
-70-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
-71            <meta-data
-71-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-72                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-72-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
-73                android:value="androidx.startup" />
-73-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+51        <activity
+51-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:30:9-78
+52            android:name="com.example.wallpaperapp.GalleryActivity"
+52-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:30:19-50
+53            android:exported="false" />
+53-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:30:51-75
+54
+55        <receiver
+55-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:32:9-38:20
+56            android:name="com.example.wallpaperapp.WallpaperReceiver"
+56-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:33:13-46
+57            android:exported="false" >
+57-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:34:13-37
+58            <intent-filter>
+58-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:35:13-37:29
+59                <action android:name="com.example.wallpaperapp.CHANGE" />
+59-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:36:17-74
+59-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:36:25-71
+60            </intent-filter>
+61        </receiver>
+62        <receiver
+62-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:40:9-46:20
+63            android:name="com.example.wallpaperapp.BootReceiver"
+63-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:41:13-41
+64            android:exported="true" >
+64-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:42:13-36
+65            <intent-filter>
+65-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:43:13-45:29
+66                <action android:name="android.intent.action.BOOT_COMPLETED" />
+66-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:44:17-79
+66-->/home/gregory/Documents/Projects/Wallpapertimer/app/src/main/AndroidManifest.xml:44:25-76
+67            </intent-filter>
+68        </receiver>
+69
+70        <provider
+70-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+71            android:name="androidx.startup.InitializationProvider"
+71-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+72            android:authorities="com.example.wallpaperapp.androidx-startup"
+72-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+73            android:exported="false" >
+73-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
 74            <meta-data
-74-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/gregory/.gradle/caches/9.3.1/transforms/d8d78604b706c6f3223367ced06afb07/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
-75                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-75-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/gregory/.gradle/caches/9.3.1/transforms/d8d78604b706c6f3223367ced06afb07/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+74-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+75                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+75-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
 76                android:value="androidx.startup" />
-76-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/gregory/.gradle/caches/9.3.1/transforms/d8d78604b706c6f3223367ced06afb07/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+76-->[androidx.emoji2:emoji2:1.2.0] /home/gregory/.gradle/caches/9.3.1/transforms/d1a3e6a67f3dc81e8bb4eaf5829acf34/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
 77            <meta-data
-77-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-78                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+77-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/gregory/.gradle/caches/9.3.1/transforms/d8d78604b706c6f3223367ced06afb07/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+78                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+78-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/gregory/.gradle/caches/9.3.1/transforms/d8d78604b706c6f3223367ced06afb07/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
 79                android:value="androidx.startup" />
-79-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-80        </provider>
-81
-82        <receiver
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-83            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-83-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-84            android:directBootAware="false"
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-85            android:enabled="true"
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-86            android:exported="true"
-86-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-87            android:permission="android.permission.DUMP" >
-87-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-88            <intent-filter>
-88-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-89                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-90            </intent-filter>
+79-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/gregory/.gradle/caches/9.3.1/transforms/d8d78604b706c6f3223367ced06afb07/transformed/lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+80            <meta-data
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+81                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+82                android:value="androidx.startup" />
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+83        </provider>
+84
+85        <receiver
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+86            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+87            android:directBootAware="false"
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+88            android:enabled="true"
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+89            android:exported="true"
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+90            android:permission="android.permission.DUMP" >
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
 91            <intent-filter>
-91-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-92                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+92                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
 93            </intent-filter>
 94            <intent-filter>
-94-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-95                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+95                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
 96            </intent-filter>
 97            <intent-filter>
-97-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-98                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-98-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-98-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+98                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
 99            </intent-filter>
-100        </receiver>
-101    </application>
-102
-103</manifest>
+100            <intent-filter>
+100-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+101                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/gregory/.gradle/caches/9.3.1/transforms/477a7997061d28836312108bc8cc605d/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+102            </intent-filter>
+103        </receiver>
+104    </application>
+105
+106</manifest>

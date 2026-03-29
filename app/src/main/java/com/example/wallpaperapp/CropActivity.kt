@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wallpaperapp.databinding.ActivityCropBinding
 import java.io.File
@@ -14,8 +15,10 @@ class CropActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCropBinding
 
     companion object {
-        const val EXTRA_URI = "uri"
+        const val EXTRA_URI         = "uri"
         const val EXTRA_RESULT_PATH = "result_path"
+        const val EXTRA_SCREEN_W    = "screen_w"
+        const val EXTRA_SCREEN_H    = "screen_h"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +27,9 @@ class CropActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val uriStr = intent.getStringExtra(EXTRA_URI) ?: run { finish(); return }
+        val screenW = intent.getIntExtra(EXTRA_SCREEN_W, 0)
+        val screenH = intent.getIntExtra(EXTRA_SCREEN_H, 0)
+
         try {
             val inputStream = contentResolver.openInputStream(Uri.parse(uriStr))
             val bmp = BitmapFactory.decodeStream(inputStream)
@@ -32,6 +38,23 @@ class CropActivity : AppCompatActivity() {
             binding.cropView.setImage(bmp)
         } catch (e: Exception) {
             finish(); return
+        }
+
+        // Тумблер пропорций
+        val hasScreenSize = screenW > 0 && screenH > 0
+        if (hasScreenSize) {
+            binding.switchAspectRatio.isEnabled = true
+            binding.switchAspectRatio.setOnCheckedChangeListener { _, checked ->
+                binding.cropView.fixedAspectRatio =
+                    if (checked) screenW.toFloat() / screenH.toFloat() else null
+                val label = if (checked) "${screenW}×${screenH}" else "Свободно"
+                binding.tvAspectLabel.text = "Пропорции: $label"
+            }
+            // Включаем по умолчанию
+            binding.switchAspectRatio.isChecked = true
+        } else {
+            binding.switchAspectRatio.isEnabled = false
+            binding.tvAspectLabel.text = "Пропорции: свободно"
         }
 
         binding.btnConfirm.setOnClickListener {
@@ -43,7 +66,6 @@ class CropActivity : AppCompatActivity() {
         }
 
         binding.btnSkip.setOnClickListener {
-            // Вернуть исходный путь без кропа (уже скопирован)
             val path = intent.getStringExtra("original_path")
             if (path != null) {
                 setResult(Activity.RESULT_OK, Intent().putExtra(EXTRA_RESULT_PATH, path))

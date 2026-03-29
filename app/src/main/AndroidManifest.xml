@@ -27,6 +27,7 @@
 
         <activity android:name=".AddScheduleActivity" android:exported="false" />
         <activity android:name=".CropActivity" android:exported="false" />
+        <activity android:name=".GalleryActivity" android:exported="false" />
 
         <receiver
             android:name=".WallpaperReceiver"

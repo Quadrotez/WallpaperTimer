@@ -2,29 +2,22 @@ package com.example.wallpaperapp
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wallpaperapp.databinding.ActivityAddScheduleBinding
-import java.io.File
-import java.io.FileOutputStream
 
 class AddScheduleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddScheduleBinding
     private lateinit var photoAdapter: PhotoAdapter
     private val photoPaths = mutableListOf<String>()
     private var editingId: String? = null
-    private var pendingCropIndex = -1
 
     companion object {
         const val EXTRA_SCHEDULE_ID = "schedule_id"
-        private const val REQ_PICK   = 101
-        private const val REQ_CROP   = 102
+        private const val REQ_GALLERY = 103
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,14 +26,12 @@ class AddScheduleActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         editingId = intent.getStringExtra(EXTRA_SCHEDULE_ID)
-        if (editingId != null) {
-            loadSchedule(editingId!!)
-        }
+        if (editingId != null) loadSchedule(editingId!!)
 
         setupPhotos()
         setupDayType()
 
-        binding.btnAddPhoto.setOnClickListener { openGallery() }
+        binding.btnAddPhoto.setOnClickListener { openGalleryPicker() }
         binding.btnSave.setOnClickListener { save() }
         binding.btnBack.setOnClickListener { finish() }
     }
@@ -50,13 +41,9 @@ class AddScheduleActivity : AppCompatActivity() {
             photoPaths,
             onDelete = { i -> photoAdapter.removePath(i) },
             onCrop   = { i ->
-                pendingCropIndex = i
-                val path = photoAdapter.getPath(i)
-                val intent = Intent(this, CropActivity::class.java).apply {
-                    putExtra(CropActivity.EXTRA_URI, Uri.fromFile(File(path)).toString())
-                    putExtra("original_path", path)
-                }
-                startActivityForResult(intent, REQ_CROP)
+                // Кроп прямо из редактора расписания — открываем через GalleryActivity не нужно,
+                // просто убираем из списка и просим выбрать заново
+                Toast.makeText(this, "Удалите фото и добавьте снова из Галереи для повторной обрезки", Toast.LENGTH_LONG).show()
             }
         )
         binding.rvPhotos.apply {
@@ -70,7 +57,6 @@ class AddScheduleActivity : AppCompatActivity() {
             binding.layoutWeeklyDay.visibility  = if (id == R.id.radioWeekly)   View.VISIBLE else View.GONE
             binding.layoutSpecific.visibility   = if (id == R.id.radioSpecific) View.VISIBLE else View.GONE
         }
-        // Spinner для еженедельного
         val days = arrayOf("Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье")
         binding.spinnerWeekDay.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, days).also {
             it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -80,7 +66,7 @@ class AddScheduleActivity : AppCompatActivity() {
     private fun loadSchedule(id: String) {
         val s = ScheduleRepository(this).getById(id) ?: return
         binding.etName.setText(s.name)
-        binding.timePicker.hour = s.hour
+        binding.timePicker.hour   = s.hour
         binding.timePicker.minute = s.minute
         photoPaths.addAll(s.imagePaths)
 
@@ -89,7 +75,6 @@ class AddScheduleActivity : AppCompatActivity() {
             WallpaperSchedule.DAY_WEEKDAYS -> binding.radioWeekdays.isChecked = true
             WallpaperSchedule.DAY_WEEKLY   -> {
                 binding.radioWeekly.isChecked = true
-                // Calendar: MON=2..SUN=1, spinner: 0=Mon..6=Sun
                 val cal = s.specificDays.firstOrNull() ?: 2
                 binding.spinnerWeekDay.setSelection(if (cal == 1) 6 else cal - 2)
             }
@@ -102,52 +87,29 @@ class AddScheduleActivity : AppCompatActivity() {
         }
     }
 
-    private fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "image/*"
-        startActivityForResult(intent, REQ_PICK)
+    private fun openGalleryPicker() {
+        val intent = Intent(this, GalleryActivity::class.java).apply {
+            putExtra(GalleryActivity.EXTRA_PICK_MODE, true)
+        }
+        startActivityForResult(intent, REQ_GALLERY)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            REQ_PICK -> if (resultCode == Activity.RESULT_OK) {
-                val uri = data?.data ?: return
-                val copied = copyToInternal(uri) ?: return
-                // Запускаем кроппер
-                pendingCropIndex = -1
-                val intent = Intent(this, CropActivity::class.java).apply {
-                    putExtra(CropActivity.EXTRA_URI, Uri.fromFile(File(copied)).toString())
-                    putExtra("original_path", copied)
-                }
-                startActivityForResult(intent, REQ_CROP)
-            }
-            REQ_CROP -> if (resultCode == Activity.RESULT_OK) {
-                val path = data?.getStringExtra(CropActivity.EXTRA_RESULT_PATH) ?: return
-                if (pendingCropIndex >= 0) {
-                    photoAdapter.updatePath(pendingCropIndex, path)
-                } else {
+        if (requestCode == REQ_GALLERY && resultCode == Activity.RESULT_OK) {
+            val selected = data?.getStringArrayListExtra(GalleryActivity.EXTRA_SELECTED_PATHS) ?: return
+            selected.forEach { path ->
+                if (!photoPaths.contains(path)) {
                     photoAdapter.addPath(path)
                 }
-                pendingCropIndex = -1
             }
         }
-    }
-
-    private fun copyToInternal(uri: Uri): String? {
-        return try {
-            val file = File(filesDir, "wp_src_${System.currentTimeMillis()}.jpg")
-            contentResolver.openInputStream(uri)?.use { input ->
-                FileOutputStream(file).use { input.copyTo(it) }
-            }
-            file.absolutePath
-        } catch (e: Exception) { null }
     }
 
     private fun save() {
         val name = binding.etName.text.toString().trim().ifEmpty { "Расписание" }
         if (photoPaths.isEmpty()) {
-            Toast.makeText(this, "Добавьте хотя бы одно фото", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Добавьте хотя бы одно фото из галереи", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -155,7 +117,7 @@ class AddScheduleActivity : AppCompatActivity() {
         val schedule = WallpaperSchedule(
             id           = editingId ?: java.util.UUID.randomUUID().toString(),
             name         = name,
-            imagePaths   = photoAdapter.let { (0 until it.itemCount).map { i -> it.getPath(i) } },
+            imagePaths   = (0 until photoAdapter.itemCount).map { photoAdapter.getPath(it) },
             hour         = binding.timePicker.hour,
             minute       = binding.timePicker.minute,
             dayType      = dayType,
@@ -175,7 +137,6 @@ class AddScheduleActivity : AppCompatActivity() {
             R.id.radioEvery    -> Pair(WallpaperSchedule.DAY_EVERY, emptyList())
             R.id.radioWeekdays -> Pair(WallpaperSchedule.DAY_WEEKDAYS, emptyList())
             R.id.radioWeekly   -> {
-                // Spinner pos 0=Mon(2)..5=Sat(7), 6=Sun(1)
                 val pos = binding.spinnerWeekDay.selectedItemPosition
                 val cal = if (pos == 6) 1 else pos + 2
                 Pair(WallpaperSchedule.DAY_WEEKLY, listOf(cal))

@@ -7,10 +7,13 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wallpaperapp.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -45,6 +48,20 @@ class MainActivity : AppCompatActivity() {
                     }
                     .setNegativeButton("Отмена", null)
                     .show()
+            },
+            onApplyNow = { s ->
+                val path = s.imagePaths.getOrNull(s.currentIndex % s.imagePaths.size.coerceAtLeast(1))
+                if (path == null) {
+                    Toast.makeText(this, "Нет фото в расписании", Toast.LENGTH_SHORT).show()
+                    return@ScheduleAdapter
+                }
+                lifecycleScope.launch {
+                    val result = WallpaperApplier.apply(this@MainActivity, path)
+                    result.fold(
+                        onSuccess = { Toast.makeText(this@MainActivity, "Обои установлены!", Toast.LENGTH_SHORT).show() },
+                        onFailure = { Toast.makeText(this@MainActivity, "Ошибка: ${it.message}", Toast.LENGTH_LONG).show() }
+                    )
+                }
             }
         )
 
@@ -54,6 +71,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.fab.setOnClickListener { openEditor(null) }
+        binding.btnGallery.setOnClickListener {
+            startActivity(Intent(this, GalleryActivity::class.java))
+        }
+
         checkExactAlarmPermission()
     }
 

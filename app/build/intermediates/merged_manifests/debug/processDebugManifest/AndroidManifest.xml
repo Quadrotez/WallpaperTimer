@@ -48,6 +48,9 @@
         <activity
             android:name="com.example.wallpaperapp.CropActivity"
             android:exported="false" />
+        <activity
+            android:name="com.example.wallpaperapp.GalleryActivity"
+            android:exported="false" />
 
         <receiver
             android:name="com.example.wallpaperapp.WallpaperReceiver"
